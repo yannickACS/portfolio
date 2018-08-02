@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Page;
 use App\Models\Article;
+use App\Models\Image;
 use Illuminate\Http\Request;
 use App\Repositories\ImageRepository;
 
@@ -21,7 +22,8 @@ class ImageController extends Controller
      */
     public function index()
     {
-        //
+        $images = Image::paginate(8);
+        return view('images.index', compact('images'));
     }
 
     /**
@@ -75,7 +77,7 @@ class ImageController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**
